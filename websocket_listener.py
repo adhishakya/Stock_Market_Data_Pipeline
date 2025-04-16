@@ -38,8 +38,9 @@ class WebSocket_Listener:
     def on_open(self,ws):
         ws.send('{"type":"subscribe","symbol":"AAPL"}')
         ws.send('{"type":"subscribe","symbol":"AMZN"}')
-        ws.send('{"type":"subscribe","symbol":"BINANCE:BTCUSDT"}')
-        ws.send('{"type":"subscribe","symbol":"IC MARKETS:1"}')
+        ws.send('{"type":"subscribe","symbol":"META"}')
+        ws.send('{"type":"subscribe","symbol":"GOOG"}')
+        ws.send('{"type":"subscribe","symbol":"NFLX"}')
 
     def start(self):
         self.ws.run_forever()

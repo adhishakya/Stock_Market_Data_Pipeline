@@ -28,7 +28,7 @@ kafka_consumer =  KafkaConsumer(
     bootstrap_servers = 'localhost:9092',
     auto_offset_reset = 'earliest',
     enable_auto_commit = True,
-    value_deserializer = lambda m: json.loads(m.decode('utf8')) if isinstance(m,bytes) else m
+    value_deserializer = lambda m: json.loads(m.decode('utf8'))
 )
 
 logging.info('Kafka consumer is listening on stock data...')

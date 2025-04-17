@@ -47,20 +47,20 @@ st.dataframe(filtered_df)
 for symbol in selected_symbols:
     st.subheader(f'{symbol} - Price Over Time')
     symbol_df = filtered_df[filtered_df['symbol'] == symbol].copy()
-    symbol_df['trade_timestamp'] = pd.to_datetime(symbol_df['trade_timestamp'])
+    symbol_df['trade_timestamp'] = pd.to_datetime(symbol_df['trade_timestamp'], unit='ms')
     symbol_df = symbol_df.sort_values('trade_timestamp')
 
     fig = px.line(
         symbol_df,
-        x='trade_timestamp',
-        y='last_price',
-        title=f'{symbol} Stock Price Over Time',
-        labels={'trade_timestamp': 'Time', 'last_price': 'Price'}
+        x = 'trade_timestamp',
+        y = 'last_price',
+        title = f'{symbol} Stock Price Over Time',
+        labels = {'trade_timestamp': 'Time', 'last_price': 'Price'}
     )
     fig.update_layout(
-        xaxis_title='Time',
-        yaxis_title='Price',
-        xaxis_rangeslider_visible=True,
-        template='plotly_dark'
+        xaxis_title = 'Time',
+        yaxis_title = 'Price',
+        xaxis_rangeslider_visible = False,
+        template = 'plotly_dark'
     )
     st.plotly_chart(fig, use_container_width=True)

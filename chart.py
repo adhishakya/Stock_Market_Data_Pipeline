@@ -19,7 +19,17 @@ st.title('Real-Time Stock Dashboard')
 df = get_stock_data()
 
 symbols = df['symbol'].unique().tolist()
-selected_symbols = st.multiselect('Select Stocks to View', symbols, default=symbols)
+if 'selected_symbols' not in st.session_state:
+    st.session_state.selected_symbols = symbols
+
+selected_symbols = st.multiselect(
+    'Select Stocks to View',
+    options=symbols,
+    default=st.session_state.selected_symbols,
+    key='stock_selector'
+)
+
+st.session_state.selected_symbols = selected_symbols
 
 filtered_df = df[df['symbol'].isin(selected_symbols)]
 

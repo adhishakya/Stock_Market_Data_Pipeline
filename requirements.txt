@@ -1,0 +1,8 @@
+streamlit
+pandas
+streamlit-autorefresh
+plotly
+kafka-python
+psycopg2-binary
+python-dotenv
+websocket-client

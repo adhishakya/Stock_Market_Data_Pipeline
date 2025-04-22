@@ -1,7 +1,7 @@
 from kafka import KafkaConsumer
 import json
 import logging
-from db_connection import get_db_connection
+from db.db_connection import get_db_connection
 
 logging.basicConfig(level = logging.INFO)
 
@@ -31,7 +31,7 @@ for message in kafka_consumer:
                 volume = data.get('v')
                 trade_timestamp = data.get('t')
 
-                file = open('insert_query.sql','r')
+                file = open('db/insert_query.sql','r')
                 query = file.read()
                 values = (symbol, last_price, volume, trade_timestamp)
 

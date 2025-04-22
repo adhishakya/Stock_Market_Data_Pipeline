@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 import websocket
-from producer import Producer
+from app.producer import Producer
 import os
 import logging
 

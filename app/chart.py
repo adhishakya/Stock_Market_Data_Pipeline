@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from streamlit_autorefresh import st_autorefresh
 import plotly.express as px
-from db_connection import get_db_connection
+from db.db_connection import get_db_connection
 
 st_autorefresh(interval=5000, key='auto-refresh')
 
